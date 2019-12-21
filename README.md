@@ -1,2 +1,2 @@
-# Rest APIs
+# REST APIs
 Rest API demo
