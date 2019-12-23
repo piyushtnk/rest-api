@@ -1,5 +1,10 @@
 import { Router } from 'express';
-import { UsersList, UsersOne } from '../models/users';
+import {
+  UsersList,
+  UsersOne,
+  UsersDelete,
+  UsersUpdate,
+} from '../models/users';
 
 const router = Router();
 
@@ -13,4 +18,13 @@ router.get('/:userId', async (req, res) => {
   res.status(response.code).send(response);
 });
 
+router.delete('/:userId', async (req, res) => {
+  const response = await UsersDelete(req.params.userId);
+  res.status(response.code).send(response);
+});
+
+router.put('/:userId', async (req, res) => {
+  const response = await UsersUpdate(req, res);
+  res.status(response.code).send(response);
+});
 export default router;

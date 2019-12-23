@@ -14,14 +14,16 @@ router.get('/*', function(req, res, next) {
       );
     } catch (err) {
       return res.status(401).json({
+        status: 'Failure',
+        code: 401,
         error: {
-          msg: 'Failed to authenticate token!',
+          message: 'Failed to authenticate token!',
         },
       });
     }
   } else {
     return res.status(401).json({
-      status: false,
+      status: 'Failure',
       code: 401,
       error: {
         message: 'Authorization token required!',
